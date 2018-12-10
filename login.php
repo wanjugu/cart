@@ -41,7 +41,11 @@ if(isset($_GET['error'])) {
 echo "<strong>Incorrect username/password</strong>";
 }
 ?>
-
+<?php
+if(preg_match("/^[a-zA-Z0-9 _-.,:"']+$/", $_POST["passbox"]) === 0){
+echo "<strong>Enter the Proper password</strong>";
+}
+?>
 <form action="<?php $_SERVER['SCRIPT_NAME']; ?>" method="POST">
 <table>
 <tr>
@@ -51,7 +55,7 @@ echo "<strong>Incorrect username/password</strong>";
 <tr>
 <td>Password</td>
 <td><input type="password" name="passBox">
-</tr>
+ </tr>
 <tr>
 <td></td>
 <td><input type="submit" name="submit" value="Log in">
